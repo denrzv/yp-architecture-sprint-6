@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: scaletestapp
+  name: scaletestapp
+  namespace: scaletestapp-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: scaletestapp
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: scaletestapp
+    spec:
+      containers:
+      - image: shestera/scaletestapp
+        name: scaletestapp
+        resources:
+          requests:
+            memory: "30Mi"
+          limits:
+            memory: "30Mi"
+        ports:
+        - containerPort: 8080
+status: {}
